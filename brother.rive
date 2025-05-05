@@ -1,0 +1,147 @@
+! version = 2.0
+> begin
+	+ request // This trigger is tested first.
+	- {ok}   // An {ok} in the response means it's okay to get a real reply
+< begin
+
+// Bot Variables
+
+// Substitutions
+! sub &quot;    = "
+! sub &apos;    = '
+! sub &amp;     = &
+! sub &lt;      = <
+! sub &gt;      = >
+! sub +         = plus
+! sub -         = minus
+! sub /         = divided
+! sub *         = times
+! sub i'm       = i am
+! sub i'd       = i would
+! sub i've      = i have
+! sub i'll      = i will
+! sub don't     = do not
+! sub isn't     = is not
+! sub you'd     = you would
+! sub you're    = you are
+! sub you've    = you have
+! sub you'll    = you will
+! sub he'd      = he would
+! sub he's      = he is
+! sub he'll     = he will
+! sub she'd     = she would
+! sub she's     = she is
+! sub she'll    = she will
+! sub they'd    = they would
+! sub they're   = they are
+! sub they've   = they have
+! sub they'll   = they will
+! sub we'd      = we would
+! sub we're     = we are
+! sub we've     = we have
+! sub we'll     = we will
+! sub whats     = what is
+! sub what's    = what is
+! sub what're   = what are
+! sub what've   = what have
+! sub what'll   = what will
+! sub can't     = can not
+! sub whos      = who is
+! sub who's     = who is
+! sub who'd     = who would
+! sub who'll    = who will
+! sub don't     = do not
+! sub didn't    = did not
+! sub it's      = it is
+! sub could've  = could have
+! sub couldn't  = could not
+! sub should've = should have
+! sub shouldn't = should not
+! sub would've  = would have
+! sub wouldn't  = would not
+! sub when's    = when is
+! sub when're   = when are
+! sub when'd    = when did
+! sub y         = why
+! sub u         = you
+! sub ur        = your
+! sub r         = are
+! sub n         = and
+! sub im        = i am
+! sub ohh       = oh
+! sub becuse    = because
+! sub becasue   = because
+! sub becuase   = because
+! sub practise  = practice
+! sub iam       = i am
+! sub welli     = well i
+! sub wellit    = well it
+! sub amfine    = am fine
+! sub aman      = am an
+! sub amon      = am on
+! sub amnot     = am not
+! sub iamusing  = i am using
+! sub amleaving = am leaving
+! sub youre     = you are
+! sub didnt     = did not
+! sub ain't     = is not
+! sub aint      = is not
+! sub everythings = everything is
+! sub everything's = everything is
+! sub schools = school is
+! sub school's = school is
+
+// Person substitutions
+! person i am    = you are
+! person you are = I am
+! person i'm     = you're
+! person you're  = I'm
+! person my      = your
+! person your    = my
+! person you     = I
+! person i       = you
+
+// Set arrays
+! array howareyou   = good bad alright fine well okay excellent horrible sad great mad 
+! array good = good| fine | alright | great | excellent | okay | not bad)
+! array bad = bad | terrible | not good
+! array yes        = yes yeah yep yup ya yea okay ok sure fine
+! array no         = no nah nope nay
+
+// Conversation with Speculative Grandpa (In my older brother's perspective).
+
++ hi [*]
+- So are you doing well?
+- So is everything alright?
+
++ [(@yes)] (everything is)|(i am) (@howareyou)
+- Are you studying hard at school?
+
++ [*] (@yes) i am studying [*]
+- That's good.. How's your mom doing? 
+
++ [*](@yes) i will study[*]
+- That's good.. How's your mom doing? 
+
+% [*] school [*]
++ [*] (@no)|(@bad) [*]
+- You need to study hard for your future.
+- It's most important for your future.
+- That's what you need to do. 
+
++ (she|mom) is (@howareyou) *
+- Make sure to listen to her.
+- Make sure to be good to her.
+
++ nothing
+- ...
+
++ nevermind
+@nothing
+
++ *
+- ... 
+- what? 
+- That's why you need to study.
+- That's why you need to be successful. 
+- That's why you need to work hard.

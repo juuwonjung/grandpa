@@ -1,0 +1,531 @@
+* {
+    box-sizing:border-box;
+}
+
+html, body{
+    margin:0;
+}
+
+@font-face {
+    font-family: 'Microsoft Sans Serif';
+    src: url("./micross.ttf");
+    
+}
+
+@font-face{
+    font-family: 'SF Mono';
+    src: url("https://fonts.cdnfonts.com/css/sf-mono")
+}
+
+@font-face{
+    font-family: "comic sans";
+    src: url("./Comic\ Sans\ MS.ttf")
+}
+
+
+@font-face{
+    font-family: 'home video';
+    src: url("./HomeVideo.ttf")
+}
+
+@font-face{
+    font-family: 'public pixel';
+    src: url("./PublicPixel.ttf")
+}
+
+h1 {
+    font-family:'positive systems';
+    text-align: center;
+    color:white;
+    font-size: 120px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    z-index: 10;
+}
+
+h2{
+    font-family:'positive systems';
+    color:#757575;
+    font-size: 120px;
+    text-align: center;
+    position: relative;
+    bottom: 200px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px;
+}
+
+h3 {
+    color: white;
+    font-family: 'home video';
+}
+
+h4 {
+    color: black;
+    font-family: 'home video';
+    font-size: 24px;
+}
+
+h5 {
+    color: black;
+    font-family: 'home video';
+    font-size: 16px;
+    margin: 0;
+}
+
+h6 {
+    color: white;
+    font-family: "comic sans";
+    font-size: 20px;
+    margin: 0;
+    pointer-events: none; /* ensures clicks bubble to .info */
+
+}
+
+/*homepage*/
+
+.index .window-beige{
+    text-align: center;
+    height: 560px;
+}
+
+.index .window-blue{
+    height: 620px;
+    margin: 0;
+}
+
+.img-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.img-gallery{
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 50px;
+}
+
+.img-tile img{
+    width: 97px;
+    height: fit-content;
+    margin-bottom: 20px;
+}
+
+.img-tile {
+    width: fit-content;
+    padding: 10px;
+    background-color: none;
+}
+
+.img-tile.selected {
+    background-color: #0057E9;  /* light blue */
+}
+.img-tile.selected h5{
+    color: white;  /* light blue */
+}
+
+.home-button{
+    height: 50px;
+    margin-top: 50px;
+    text-align: center;
+
+}
+
+
+
+.home-button button{
+    background-color: #FFFDF4;
+    color: black;
+    border: solid 2px black;
+    box-shadow: inset 3px 0px 0px 0px #FFFFFF, inset 0px 3px 0px 0px #FFFFFF, inset -3px 0px 0px 0px #F5F2E5, inset 0px 0px 0px 3px #F5F2E5;
+    font-size: 16px;
+    padding: 10px 20px;
+    font-family: 'home video';
+    border-radius: 5px;
+    width: 90px;
+    height: 37px;
+    z-index: 20;
+    margin: 0 15px;
+}
+
+.home-button button:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+.home-button button:active{
+    text-decoration: underline;
+}
+
+
+/* input message section - SEND BUTTON*/
+
+.ask{
+    background-color: #FFFDF4;
+    color: black;
+    border: solid 2px black;
+    box-shadow: inset 3px 0px 0px 0px #FFFFFF, inset 0px 3px 0px 0px #FFFFFF, inset -3px 0px 0px 0px #F5F2E5, inset 0px 0px 0px 3px #F5F2E5;
+    font-size: 20px;
+    padding: 10px 20px;
+    font-family: 'home video';
+    border-radius: 5px;
+    width: 130px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    z-index: 4;
+}
+
+.ask:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+.ask:active{
+    text-decoration: underline;
+}
+
+/* input message section - TYPE*/
+
+.user-input{
+    width: 524px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Microsoft Sans Serif';
+    letter-spacing: 0.5px;
+    background-color: white;
+    padding-left: 20px;
+    border:none;
+    border-top: 2px solid black;
+    border-left: 2px solid  black;
+    position: absolute;
+    bottom: 0;
+
+}
+
+.input {
+    display:flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom:0;
+    width:100%;
+}
+
+.user-input:focus {
+    box-shadow: inset 3px 0px 0px 0px #adadad, inset 0px 3px 0px 0px #adadad;
+    outline: none !important;
+
+  }
+
+/* message display section*/
+
+/* Core message container: flex row with image + text */
+.message {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    gap: 10px;
+    width: 100%;
+}
+
+/* User message: image on the right, text on the left (mirrored) */
+.user-message {
+    justify-content: flex-end;
+}
+
+/* Bot message: image on the left, text on the right */
+.bot-message {
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+/* Avatar styling */
+.avatar {
+    width: auto;
+    height: 47px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.output{
+    font-size: 20px;
+    height: 409px;
+    width: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid  black;
+    box-shadow: inset 3px 0px 0px 0px #adadad, inset 0px 3px 0px 0px #adadad;
+    position: absolute;
+    overflow: scroll;
+    padding: 0 20px;
+    background-color: white;
+
+}
+
+.output::-webkit-scrollbar {
+  display: none;
+}
+
+.output .question {
+    text-align:right;
+    margin:15px;
+    padding:15px 20px;
+    border-radius:10px;
+    margin-bottom: 10px;
+    max-width:50%;
+    float:right;
+    clear:both;
+    border: 1px solid black;
+}
+
+.output .reply {
+    text-align:left;
+    margin:15px;
+    padding:15px 20px;
+    margin-bottom: 10px;
+    max-width:50%;
+    float:left;
+    clear:both;
+    background: #F0F0F0;
+    border: 1px solid black;
+    border-radius:10px;
+}
+
+.output .question span{
+    font-family:'Microsoft Sans Serif';
+    letter-spacing: 0.5px;
+    color:black;
+    
+}
+
+.output .reply span{
+    font-family:'SF Mono';
+    color: black;
+}
+
+
+/* entire page display*/
+.container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    gap: 50px;
+    justify-content:center;
+}
+
+
+/* window containers */
+
+.window-blue{
+    background-color: #0057E9;
+    border-radius: 5px;
+    padding: 5px;
+    height: 550px;
+}
+
+.window-title{
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.title{
+    width: fit-content;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    text-align: center;
+    cursor: pointer;
+   
+}
+
+
+.buttons div{
+    display: inline-block;
+}
+
+.close{
+    margin: auto;
+    width: 37px;
+    height: 37px;
+    background-color: #FF5337;
+    border: 3px white solid;
+    border-radius: 5px;
+    
+}
+
+.info{
+    width: 37px;
+    height: 37px;
+    background-color: #3F80ED;
+    border: 3px white solid;
+    border-radius: 5px;
+    font-family: 'Comic Sans';
+}
+
+.window-beige{
+    background-color: #ECE9D8;
+    height: 490px;
+    padding: 10px;
+}
+
+
+.chat-container {
+    display:inline-block;
+    width: 700px;
+    height: 550px;
+    margin-top: 0px;
+}
+
+.index .chat-container {
+    display:inline-block;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 0px;
+}
+
+
+
+/* quote box*/
+
+
+.quotes-container {
+    width:550px;
+    height: 546px;
+    display: inline-block;
+    color:#fff;
+    margin-top: 0px;
+    padding-bottom: 30px;
+}
+
+.window-white{
+    background-color: #fff;
+    height: 470px;
+    padding: 10px;
+}
+
+.quotes {
+    width:470px;
+    height: 546px;
+    display: inline-block;
+    margin-top: 0px;
+    padding-bottom: 30px;
+}
+
+
+.chat-boxes {
+    height:468px;
+    position:relative;
+}
+
+p{
+    font-family: 'Microsoft Sans Serif';
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: black;
+    margin: 0 20px;
+    text-align: start;
+    line-height: 2;
+}
+
+p span{
+    font-family: 'public pixel';
+}
+
+body{
+    background: url("./microsoft-bg.png");
+    background-size: cover;
+    overflow: hidden;}
+
+
+.popup{
+    position: absolute;
+    margin-bottom: 200px;
+    z-index: 6;
+    width: 500px;
+    height: 400px;
+    display: none;
+}
+
+.dad .popup{
+    width: 700px;
+    height: 600px;
+    margin-bottom:0;
+}
+
+.dad .popup .window-blue{
+    height: 600px;
+}
+
+.dad .popup .window-beige{
+    height: 540px;
+}
+
+.dad .popup .window-white{
+    height: 520px;
+}
+
+
+.bro .popup{
+    height: 520px;
+    margin-bottom:0;
+}
+
+.bro .popup .window-blue{
+    height: 520px;
+}
+
+.bro .popup .window-beige{
+    height: 460px;
+}
+
+.bro .popup .window-white{
+    height: 440px;
+}
+
+
+.popup .window-blue{
+    width: 100%;
+    height: auto;
+    z-index: 6;
+}
+
+.popup .window-beige{
+    width: 100%;
+    height: 340px;
+    z-index: 6;
+}
+
+.popup .window-white{
+    width: 100%;
+    height: 320px;
+    z-index: 6;
+    padding-top: 15px;
+}
+
+.info-description p, .info-description li{
+    font-family:'Microsoft Sans Serif';
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.info-highlight, .info-highlight p {
+    font-family:'public pixel';
+    font-size: 16px;
+}
+

@@ -1,0 +1,163 @@
+! version = 2.0
+> begin
+	+ request // This trigger is tested first.
+	- {ok}   // An {ok} in the response means it's okay to get a real reply
+< begin
+
+// Bot Variables
+! var bot_age = 83 
+! var birthday = 1963
+
+
+// Substitutions
+! sub &quot;    = "
+! sub &apos;    = '
+! sub &amp;     = &
+! sub &lt;      = <
+! sub &gt;      = >
+! sub +         = plus
+! sub -         = minus
+! sub /         = divided
+! sub *         = times
+! sub i'm       = i am
+! sub i'd       = i would
+! sub i've      = i have
+! sub i'll      = i will
+! sub don't     = do not
+! sub isn't     = is not
+! sub you'd     = you would
+! sub you're    = you are
+! sub you've    = you have
+! sub you'll    = you will
+! sub he'd      = he would
+! sub he's      = he is
+! sub he'll     = he will
+! sub she'd     = she would
+! sub she's     = she is
+! sub she'll    = she will
+! sub they'd    = they would
+! sub they're   = they are
+! sub they've   = they have
+! sub they'll   = they will
+! sub we'd      = we would
+! sub we're     = we are
+! sub we've     = we have
+! sub we'll     = we will
+! sub whats     = what is
+! sub what's    = what is
+! sub what're   = what are
+! sub what've   = what have
+! sub what'll   = what will
+! sub can't     = can not
+! sub whos      = who is
+! sub who's     = who is
+! sub who'd     = who would
+! sub who'll    = who will
+! sub don't     = do not
+! sub didn't    = did not
+! sub it's      = it is
+! sub could've  = could have
+! sub couldn't  = could not
+! sub should've = should have
+! sub shouldn't = should not
+! sub would've  = would have
+! sub wouldn't  = would not
+! sub when's    = when is
+! sub when're   = when are
+! sub when'd    = when did
+! sub y         = why
+! sub u         = you
+! sub ur        = your
+! sub r         = are
+! sub n         = and
+! sub im        = i am
+! sub ohh       = oh
+! sub becuse    = because
+! sub becasue   = because
+! sub becuase   = because
+! sub practise  = practice
+! sub iam       = i am
+! sub welli     = well i
+! sub wellit    = well it
+! sub amfine    = am fine
+! sub aman      = am an
+! sub amon      = am on
+! sub amnot     = am not
+! sub iamusing  = i am using
+! sub amleaving = am leaving
+! sub youre     = you are
+! sub didnt     = did not
+! sub ain't     = is not
+! sub aint      = is not
+! sub everything's = everything is
+! sub everythings = everything is
+
+// Person substitutions
+! person i am    = you are
+! person you are = I am
+! person i'm     = you're
+! person you're  = I'm
+! person my      = your
+! person your    = my
+! person you     = I
+! person i       = you
+
+// Set arrays
+! array howareyou   = good bad alright fine well okay excellent horrible sad great mad 
+! array yes        = yes yeah yep yup ya yea
+! array no         = no nah nope nay
+! array hi          = hi hello hey 
+! array what 		= what which how why
+
+// Conversation with Speculative Grandpa (In my dad's perspective).
+
++ [*] (@hi) [*]
+- Is everything alright?
+
+%[*] alright [*]
++ [*] (@yes) everything[*]
+- How's work?
+
++ [*] work [*]
+- I see. Did you check the latest policy the government implemented? It's ridiculous. Those bastards!
+- Hmm.. yes.. You know the other day I heard that the tax-rates are increasing.. 
+
++ what [about the] tax rates
+- It's increasing by 30%. Why the hell would anyone ever do that?
+
++ i don't know [either]
+- It's because the current left politicians are useless, that's why! Full of corruption.. 
+
++ what else have you [recently] learned [about] [*]
+- You know the.. the korean golf player whose shots are amazing? She won another medal in the league recently! More players like her need to show up..
+- The minister of justice, he was caught for corrupting his daughter's university admissions. That bastard faked her application by using his own connections to make professors write a research paper for her. That's why the current government is so messed up these days..
+
++ (@what) kind of policy
+- It's just another dumb useless policy. What a waste of money. 
+
++ (@what) policy
+@(@what) kind of policy
+- It's just another dumb useless policy. What a waste of money. 
+
++ how do you keep up with [all] [of] this news
+- Even if you get old, it's important to keep routines. I always walk in the morning for an hour, eat all three meals, take two plates of fresh vegetables and fruits, and watch the news continuously. Keeping routines is very important in life. You should take note of that as well.
+
++ do you still [go out to] meet your friends [these days]
+- I used to every month, but since COVID and my recovery, it's been hard to go out. I stay home most of the times but I always make sure to keep my routines. Routines are very important in life. Make sure you keep your routines too. 
+
++ do not you want to join [some] [local] communities to make new friends
+- I keep my routines everyday. I need to go out to walk in the morning for an hour, eat all three meals with vegetables and fruits. Routines are very important in life. You should keep your routines too. 
+- .... no not really. I keep my routines everyday. Routines are very important in life. You should keep your routines too. 
+
++ what else do you do these days?
+- I'm the same.. Healthy.. I walk everyday for an hour, eat three meals everyday, then watch the news and play go. Routines are really important. 
+
++ [*] how are you [*]
+- I'm the same.. Healthy.. I walk everyday for an hour, eat three meals everyday, then watch the news and play go. Routines are really important. 
+
++ *
+- ....
+- What did you say?
+- I see.
+- Yes, that's right. 
+- Routines are very important in life. Make sure you keep your routines too.

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./main2.css"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+
+</head>
+<body class="index">
+    <div class="container">
+
+    <div class="chat-container">
+        <div class="window-blue">
+            <div class="window-title">
+                <div class="title">
+                <h3>SetUp</h3>
+                </div>
+            </div>
+        <div class="window-beige">
+          <h4> Choose Your character</h4>
+          <div class="img-gallery">
+            <div class="img-col">
+            <div class="img-tile">
+                <img src="./dad-folder.png">
+                <h5>Son-in-Law</h5>
+            </div>
+            <div class="img-tile">
+                <img src="./bro-folder.png">
+                <h5>Grandson</h5>
+
+            </div>
+            </div>
+            <div class="img-col">
+            <div class="img-tile">
+                <img src="./mom-folder.png">
+                <h5>Daughter</h5>
+
+            </div>
+            <div class="img-tile">
+                <img src="./me-folder.png">
+                <h5>Granddaughter</h5>
+
+            </div>
+        </div>
+          </div>
+
+          <div class="home-button">
+            <button type="button"class="button1">
+                Play
+            </button>
+            <button type="button" class="button1">
+                Info
+            </button>
+          </div>
+          
+        </div>
+
+    </div>
+    <script>
+        let selectedRole = null;
+      
+        const tiles = document.querySelectorAll('.img-tile');
+        const playButton = document.querySelector('.button1'); // First button is "Play"
+      
+        tiles.forEach(tile => {
+          tile.addEventListener('click', () => {
+            // Remove selection from all tiles
+            tiles.forEach(t => t.classList.remove('selected'));
+      
+            // Mark current tile as selected
+            tile.classList.add('selected');
+      
+            // Save selected role
+            selectedRole = tile.querySelector('h5').innerText.trim().toLowerCase(); // e.g., "grandson"
+          });
+        });
+      
+        playButton.addEventListener('click', () => {
+          if (!selectedRole) {
+            alert("Please click on a character first :)");
+            return;
+          }
+      
+          // Redirect to specific page
+          // You can customize these names as needed
+          const pageMap = {
+            "son-in-law": "dad.html",
+            "grandson": "brother.html",
+            "daughter": "mom.html",
+            "granddaughter": "me.html"
+          };
+      
+          const nextPage = pageMap[selectedRole];
+      
+          if (nextPage) {
+            window.location.href = nextPage;
+          } else {
+            alert("Unrecognized character.");
+          }
+        });
+      </script>
+
+      
+      
+</body>
+</html>
